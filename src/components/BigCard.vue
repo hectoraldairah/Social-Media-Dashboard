@@ -2,9 +2,9 @@
   <div class="container">
     <div :class="'brand ' + brand"></div>
     <div class="social">
-      <i alt="brand"
-        ><img class="icon" alt="social-brand" :src="require(`@/assets/icon-${brand}.svg`)"
-      /></i>
+      <i alt="brand">
+        <img class="icon" alt="social-brand" :src="require(`@/assets/icon-${brand}.svg`)" />
+      </i>
       <h5 class="user">@nathan</h5>
     </div>
     <div class="followers">
@@ -12,9 +12,9 @@
       <h2 class="text">followers</h2>
     </div>
     <div class="date">
-      <i alt="up-arrow" class="arrow"
-        ><img :src="require(`@/assets/icon-${isUp ? 'up' : 'down'}.svg`)"
-      /></i>
+      <i alt="up-arrow" class="arrow">
+        <img :src="require(`@/assets/icon-${isUp ? 'up' : 'down'}.svg`)" />
+      </i>
       <p :class="'text ' + color">{{ todayFollowers }} Today</p>
     </div>
   </div>
@@ -56,12 +56,12 @@ export default {
 }
 
 .green {
-  color: $lime-green;
+  color: $lime-green !important;
   font-weight: bold;
 }
 
 .red {
-  color: $bright-red;
+  color: $bright-red !important;
 }
 
 .container {
@@ -75,13 +75,15 @@ export default {
   background: $dark-desaturated-blue;
   border-radius: 10px;
   color: $white;
+  cursor: pointer;
 
   .brand {
     position: absolute;
     top: 0;
-    left: 0;
+    left: 6;
     width: 100%;
     height: 6px;
+    margin: 0;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
   }

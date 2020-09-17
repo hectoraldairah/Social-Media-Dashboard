@@ -1,20 +1,22 @@
 <template>
   <header class="container">
-    <div class="header">
-      <h2 class="header__title">Social Media Dashboard</h2>
-      <h4 class="header__subtitle">Total Followers: 24,004</h4>
+    <div class="navbar">
+      <div class="header">
+        <h2 class="header__title">Social Media Dashboard</h2>
+        <h4 class="header__subtitle">Total Followers: 24,004</h4>
+      </div>
+      <nav class="toggle">
+        <p class="toggle__text">{{ theme === 'dark' ? 'light' : 'dark' }} Mode</p>
+        <label class="switch">
+          <input
+            type="checkbox"
+            :class="theme === 'dark' ? 'checked' : false"
+            @change="$emit('toggle')"
+          />
+          <span class="slider round"></span>
+        </label>
+      </nav>
     </div>
-    <nav class="toggle">
-      <p class="toggle__text">{{ theme === 'dark' ? 'light' : 'dark' }} Mode</p>
-      <label class="switch">
-        <input
-          type="checkbox"
-          :class="theme === 'dark' ? 'checked' : false"
-          @change="$emit('toggle')"
-        />
-        <span class="slider round"></span>
-      </label>
-    </nav>
   </header>
 </template>
 
@@ -35,7 +37,7 @@ export default {
 .container {
   max-width: 375px;
   margin: 0 auto;
-  padding: 3rem 2rem;
+  padding: 4rem 2rem;
   background: $dark-bg-pattern;
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
@@ -141,5 +143,37 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+@media (min-width: 1220px) {
+  .container {
+    max-width: 100%;
+    margin: 0 auto;
+
+    .navbar {
+      max-width: 1220px;
+    }
+  }
+}
+
+@media (min-width: 1440px) {
+  .container {
+    max-width: 100%;
+    margin: 0 auto;
+
+    .navbar {
+      max-width: 1440px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+
+      .header {
+        border-bottom: 0;
+      }
+      .toggle {
+        width: 11rem;
+      }
+    }
+  }
 }
 </style>
